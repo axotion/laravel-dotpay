@@ -4,7 +4,8 @@
     "description": "Package for Dotpay payments via api instead of form",
     "keywords": [
         "Evilnet",
-        "Dotpay"
+        "Dotpay",
+	"laravel"
     ],
     "homepage": "https://github.com/Evilnet/Dotpay",
     "license": "MIT",
