@@ -10,13 +10,13 @@ return [
     ],
     'options' => [
         'url' => '127.0.0.1',
-        'curl' => 'https://985646fe.ngrok.io/dotpay/status',
+        'curl' => 'callback_url',
         'recipient' => [
             'company' => 'YourCompany',
             'address' => [
-                'street' => 'JakastamUlica',
-                'building_number' => '1',
-                'postcode' => '33-444',
+                'street' => '',
+                'building_number' => '',
+                'postcode' => '',
                 'city' => "Warszawa"
             ]
         ],
