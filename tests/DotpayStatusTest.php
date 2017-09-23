@@ -5,7 +5,7 @@ namespace Evilnet\Dotpay\Tests;
 use Evilnet\Dotpay\DotpayApi\StatusMapper;
 use Tests\TestCase;
 
-class DotpayStatusTest extends TestCase
+class DotpayStatusTest extends \PHPUnit\Framework\TestCase
 {
 
     protected $statusMapper;

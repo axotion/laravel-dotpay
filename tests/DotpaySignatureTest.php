@@ -5,7 +5,7 @@ namespace Evilnet\Dotpay\Tests;
 use Evilnet\Dotpay\DotpayApi\Validator;
 use Tests\TestCase;
 
-class DotpaySignatureTest extends TestCase
+class DotpaySignatureTest extends \PHPUnit\Framework\TestCase
 {
     public function test_signature_fail_invalid_pin()
     {
