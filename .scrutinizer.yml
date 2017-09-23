@@ -1,4 +1,0 @@
-build:
-    tests:
-        override:
-            - phpunit tests/

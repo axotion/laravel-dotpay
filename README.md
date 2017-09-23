@@ -4,7 +4,9 @@ Package for Dotpay payments via api instead of form
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/axotion/laravel-dotpay/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/axotion/laravel-dotpay/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/axotion/laravel-dotpay/badges/build.png?b=master)](https://scrutinizer-ci.com/g/axotion/laravel-dotpay/build-status/master)
-
+[![Latest Unstable Version](https://poser.pugx.org/evilnet/dotpay/v/unstable)](https://packagist.org/packages/evilnet/dotpay)
+[![License](https://poser.pugx.org/evilnet/dotpay/license)](https://packagist.org/packages/evilnet/dotpay)
+[![Total Downloads](https://poser.pugx.org/evilnet/dotpay/downloads)](https://packagist.org/packages/evilnet/dotpay)
 ## Structure
 
 ```
