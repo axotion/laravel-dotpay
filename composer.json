@@ -1,0 +1,50 @@
+{
+    "name": "Evilnet/Dotpay",
+    "type": "library",
+    "description": "Package for Dotpay payments via api instead of form",
+    "keywords": [
+        "Evilnet",
+        "Dotpay"
+    ],
+    "homepage": "https://github.com/Evilnet/Dotpay",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Axotion",
+            "email": "axotion@linux.pl",
+            "homepage": "https://github.com/axotion",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "illuminate/support": "~5.1",
+        "php" : "~5.6|~7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : ">=5.4.3",
+        "squizlabs/php_codesniffer": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Evilnet\\Dotpay\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Evilnet\\Dotpay\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
+        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
