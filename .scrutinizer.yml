@@ -1,0 +1,4 @@
+build:
+    tests:
+        override:
+            - ./run-tests.sh

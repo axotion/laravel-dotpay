@@ -2,6 +2,8 @@
 
 Package for Dotpay payments via api instead of form
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/axotion/laravel-dotpay/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/axotion/laravel-dotpay/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/axotion/laravel-dotpay/badges/build.png?b=master)](https://scrutinizer-ci.com/g/axotion/laravel-dotpay/build-status/master)
 
 ## Structure
 
