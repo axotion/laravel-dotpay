@@ -15,7 +15,7 @@ tests/
 ```
 
 
-##Instalacja
+## Instalacja
 
 Przez composera
 
