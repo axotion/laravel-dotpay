@@ -1,13 +1,13 @@
 # laravel-dotpay
 
-Package for Dotpay payments via api instead of form
+Paczka Dotpay do Laravela 5.x. Pozwala przesyłać dane poprzez API zamiast formularza.
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/axotion/laravel-dotpay/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/axotion/laravel-dotpay/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/axotion/laravel-dotpay/badges/build.png?b=master)](https://scrutinizer-ci.com/g/axotion/laravel-dotpay/build-status/master)
 [![Latest Unstable Version](https://poser.pugx.org/evilnet/dotpay/v/unstable)](https://packagist.org/packages/evilnet/dotpay)
 [![License](https://poser.pugx.org/evilnet/dotpay/license)](https://packagist.org/packages/evilnet/dotpay)
 [![Total Downloads](https://poser.pugx.org/evilnet/dotpay/downloads)](https://packagist.org/packages/evilnet/dotpay)
-## Structure
+## Struktura
 
 ```
 src/
@@ -15,15 +15,23 @@ tests/
 ```
 
 
-## Install
+##Instalacja
 
-Via Composer
+Przez composera
 
 ``` bash
 $ composer require evilnet/dotpay
 ```
 
-Then register service and alias in config/app.php
+lub dodaj do pliku composera
+
+```json
+ "require": {
+         "evilnet/dotpay": "dev-master"
+     },
+
+```
+Potem zarejestruj usługę i ewentualnie alias w config/app.php
 
 
 ```
@@ -37,13 +45,13 @@ Then register service and alias in config/app.php
 ```
 
 
-Publish config 
+Opublikuj konfguracje i wprowadź w niej potrzebne dane
 
 ```
 php artisan vendor:publish --provider="Evilnet\Dotpay\DotpayServiceProvider"
 ```
 
-Configure .env file
+Dodaj wartości do pliku .env
 
 ```
 DOTPAY_USERNAME=
@@ -52,10 +60,10 @@ DOTPAY_SHOP_ID=
 DOTPAY_PIN=
 DOTPAY_BASE_URL=https://ssl.dotpay.pl/test_seller/ 
 ```
+I dodaj swoją metodę do obsługi callbacku jako wyjątek w VerifyCsrfToken
 
-And add your callback post method to exception in VerifyCsrfToken middleware
 
-## Example of usage
+## Przykład użycia (z użyciem fasady)
 
 ``` php
 
