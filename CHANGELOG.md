@@ -7,16 +7,17 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ## NEXT - YYYY-MM-DD
 
 ### Added
-- Nothing
+- Response class
+- createPayment method in DotpayManager
 
 ### Deprecated
-- Nothing
+- 
 
 ### Fixed
 - Nothing
 
 ### Removed
-- Nothing
+- redirectUrl method from DotpayManager
 
 ### Security
 - Nothing

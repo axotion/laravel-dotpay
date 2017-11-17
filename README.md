@@ -63,19 +63,32 @@ DOTPAY_BASE_URL=https://ssl.dotpay.pl/test_seller/
 I dodaj swoją metodę do obsługi callbacku jako wyjątek w VerifyCsrfToken
 
 
-## Przykład użycia (z użyciem fasady)
+## Przykład użycia
 
 ``` php
+namespace App\Http\Controllers;
 
-use Evilnet\Dotpay\Facades\Dotpay;
+use Evilnet\Dotpay\DotpayManager;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class DotpayController extends Controller
 {
 
+    private $dotpayManager;
+
+    public function __construct(DotpayManager $dotpayManager)
+    {
+        $this->dotpayManager = $dotpayManager;
+    }
+
     public function callback(Request $request)
     {
-       $result = Dotpay::callback($request->all());
-
+        $response = $this->dotpayManager->callback($request->all());
+        
+        //Do whatever you want with this
+        
+        return new Response('OK');
     }
 
     public function pay()
@@ -100,8 +113,9 @@ class DotpayController extends Controller
 
         ];
 
-       return redirect()->to(Dotpay::redirectUrl($data));
+        return redirect()->to($this->dotpayManager->createPayment($data));
     }
+}
 ```
 
 ## Change log

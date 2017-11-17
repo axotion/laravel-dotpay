@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kamilfronczak
- * Date: 17.11.2017
- * Time: 15:32
- */
 
 namespace Evilnet\Dotpay\DotpayApi;
 
