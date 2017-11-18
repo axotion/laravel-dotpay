@@ -32,8 +32,4 @@ class DotpayApi
         return $this->validator->verify($data);
     }
 
-    public function paidStatus($status)
-    {
-        return (new StatusMapper())->map($status);
-    }
 }
