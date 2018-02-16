@@ -2,7 +2,7 @@
 
 namespace Evilnet\Dotpay\DotpayApi\Requests;
 
-use Evilnet\Dotpay\Contracts\IRequest;
+use Evilnet\Dotpay\DotpayApi\Contracts\IRequest;
 
 class CreatePaymentLink extends AbstractRequest implements IRequest
 {

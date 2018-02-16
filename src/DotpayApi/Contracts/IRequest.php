@@ -1,6 +1,6 @@
 <?php
 
-namespace Evilnet\Dotpay\Contracts;
+namespace Evilnet\Dotpay\DotpayApi\Contracts;
 
 interface IRequest
 {

@@ -2,7 +2,7 @@
 
 namespace Evilnet\Dotpay\DotpayApi;
 
-use Evilnet\Dotpay\Contracts\IRequest;
+use Evilnet\Dotpay\DotpayApi\Contracts\IRequest;
 
 class Client
 {
