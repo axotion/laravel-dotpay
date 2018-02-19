@@ -31,7 +31,7 @@ lub dodaj do pliku composera
      },
 
 ```
-Potem zarejestruj usługę i ewentualnie alias w config/app.php
+Potem zarejestruj usługę i ewentualnie alias w config/app.php (Niepotrzebne od Laravela 5.5 i wzwyż)
 
 
 ```
