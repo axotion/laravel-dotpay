@@ -9,12 +9,14 @@ class DotpayApi
     private $config;
     private $client;
     private $validator;
+    private $url_creator;
 
     public function __construct($config)
     {
         $this->config = $config;
         $this->client = new Client($this->config['username'], $this->config['password'], $this->config['base_url']);
         $this->validator = new Validator($this->config['pin']);
+        $this->url_creator = new UrlCreator($this->config['pin']);
     }
 
     public function createPayment($payment)
@@ -24,7 +26,16 @@ class DotpayApi
 
     public function getPaymentUrl($payment)
     {
-        return $payment->payment_url;
+        switch ($this->config['api_version']) {
+            case 'dev':
+                return $this->url_creator->getPaymentUrlWithCHK($payment);
+                break;
+            case 'legacy':
+                return $this->url_creator->getPaymentUrl($payment);
+            default:
+                break;
+        }
+
     }
 
     public function verifyCallback($data)
