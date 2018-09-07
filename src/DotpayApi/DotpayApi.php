@@ -28,14 +28,13 @@ class DotpayApi
     {
         switch ($this->config['api_version']) {
             case 'dev':
+            default:
                 return $this->url_creator->getPaymentUrlWithCHK($payment);
                 break;
             case 'legacy':
                 return $this->url_creator->getPaymentUrl($payment);
-            default:
                 break;
         }
-
     }
 
     public function verifyCallback($data)
