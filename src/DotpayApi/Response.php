@@ -31,6 +31,11 @@ class Response
         return $this->data['operation_amount'];
     }
 
+    public function getOperationCurrency()
+    {
+        return $this->data['operation_currency'];
+    }
+    
     public function getOperationDateTime()
     {
         return $this->data['operation_datetime'];
