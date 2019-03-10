@@ -10,7 +10,7 @@ class CreatePaymentLink extends AbstractRequest implements IRequest
     protected $currency;
     protected $description;
     protected $control;
-    protected $language;
+    // protected $language;
     protected $onlinetransfer = 1;
     protected $ch_lock = 1;
     protected $redirection_type = 0;
@@ -38,5 +38,4 @@ class CreatePaymentLink extends AbstractRequest implements IRequest
     {
         return 'api/v1/accounts/'.$this->shop_id.'/payment_links/';
     }
-
 }
