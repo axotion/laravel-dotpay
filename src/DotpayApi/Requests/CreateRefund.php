@@ -3,6 +3,7 @@
 namespace Evilnet\Dotpay\DotpayApi\Requests;
 
 use Evilnet\Dotpay\DotpayApi\Contracts\IRequest;
+use Evilnet\Dotpay\Exceptions\RequestIntegrityException;
 
 /**
  * Class CreateRefund
@@ -34,11 +35,20 @@ class CreateRefund extends AbstractRequest implements IRequest
      * CreateRefund constructor.
      * @param $operation_number
      * @param $data
+     * @throws RequestIntegrityException
      */
     public function __construct($operation_number, $data)
     {
+        if(!$operation_number){
+            throw new RequestIntegrityException("Operation number is not set");
+        }
+
         $this->operation_number = $operation_number;
+
         foreach ($data as $key => $value) {
+            if(!$value || is_numeric($value) && $value <= 0){
+                throw new RequestIntegrityException();
+            }
             $this->$key = $value;
         }
     }
