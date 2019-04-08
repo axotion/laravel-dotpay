@@ -2,8 +2,15 @@
 
 namespace Evilnet\Dotpay\DotpayApi;
 
+/**
+ * Class Validator
+ * @package Evilnet\Dotpay\DotpayApi
+ */
 class Validator
 {
+    /**
+     * @var array
+     */
     private $keys = [
         'id',
         'operation_number',
@@ -32,13 +39,24 @@ class Validator
         'geoip_country',
     ];
 
+    /**
+     * @var
+     */
     private $pin;
 
+    /**
+     * Validator constructor.
+     * @param $pin
+     */
     public function __construct($pin)
     {
         $this->pin = $pin;
     }
 
+    /**
+     * @param $data
+     * @return bool
+     */
     public function verify($data)
     {
         $concatData = '';
