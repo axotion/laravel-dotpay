@@ -66,6 +66,6 @@ class CreateRefund extends AbstractRequest implements IRequest
      */
     public function path()
     {
-        return 'api/v3/payments/'.$this->operation_number.'/refund/';
+        return 'api/v1/payments/'.$this->operation_number.'/refund/';
     }
 }
