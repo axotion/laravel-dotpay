@@ -3,14 +3,35 @@
 namespace Evilnet\Dotpay\DotpayApi;
 
 use Evilnet\Dotpay\DotpayApi\Requests\CreatePaymentLink;
+use Evilnet\Dotpay\DotpayApi\Requests\CreateRefund;
 
+/**
+ * Class DotpayApi
+ * @package Evilnet\Dotpay\DotpayApi
+ */
 class DotpayApi
 {
+    /**
+     * @var
+     */
     private $config;
+    /**
+     * @var Client
+     */
     private $client;
+    /**
+     * @var Validator
+     */
     private $validator;
+    /**
+     * @var UrlCreator
+     */
     private $url_creator;
 
+    /**
+     * DotpayApi constructor.
+     * @param $config
+     */
     public function __construct($config)
     {
         $this->config = $config;
@@ -19,11 +40,31 @@ class DotpayApi
         $this->url_creator = new UrlCreator($this->config['pin']);
     }
 
+    /**
+     * @param $payment
+     * @return mixed|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function createPayment($payment)
     {
         return $this->getPaymentUrl($this->client->makeRequest(new CreatePaymentLink($this->config['shop_id'], $payment)));
     }
 
+    /**
+     * @param $payment
+     * @param $operation_number
+     * @return mixed
+     * @throws \Evilnet\Dotpay\Exceptions\RequestIntegrityException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function refundPayment($operation_number, $payment){
+        return $this->client->makeRequest(new CreateRefund($operation_number, $payment));
+    }
+
+    /**
+     * @param $payment
+     * @return mixed|string
+     */
     public function getPaymentUrl($payment)
     {
         switch ($this->config['api_version']) {
@@ -37,9 +78,12 @@ class DotpayApi
         }
     }
 
+    /**
+     * @param $data
+     * @return bool
+     */
     public function verifyCallback($data)
     {
         return $this->validator->verify($data);
     }
-
 }
