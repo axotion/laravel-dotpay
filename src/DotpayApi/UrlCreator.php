@@ -39,5 +39,4 @@ class UrlCreator
     {
         return $payment->payment_url.'&chk='.hash('sha256', ($this->pin.$payment->token));
     }
-
 }

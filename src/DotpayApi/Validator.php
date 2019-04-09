@@ -69,5 +69,4 @@ class Validator
 
         return $data['signature'] === $hash;
     }
-
 }

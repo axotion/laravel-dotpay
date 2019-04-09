@@ -44,6 +44,7 @@ class Client
     /**
      * @param IRequest $request
      * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function makeRequest(IRequest $request)
     {

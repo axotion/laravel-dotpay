@@ -43,6 +43,7 @@ class DotpayApi
     /**
      * @param $payment
      * @return mixed|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function createPayment($payment)
     {
@@ -51,10 +52,13 @@ class DotpayApi
 
     /**
      * @param $payment
+     * @param $operation_number
      * @return mixed
+     * @throws \Evilnet\Dotpay\Exceptions\RequestIntegrityException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function refundPayment($payment){
-        return $this->client->makeRequest(new CreateRefund($this->config['shop_id'], $payment));
+    public function refundPayment($operation_number, $payment){
+        return $this->client->makeRequest(new CreateRefund($operation_number, $payment));
     }
 
     /**
@@ -82,5 +86,4 @@ class DotpayApi
     {
         return $this->validator->verify($data);
     }
-
 }

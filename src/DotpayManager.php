@@ -35,6 +35,7 @@ class DotpayManager
     /**
      * @param $data
      * @return mixed|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function createPayment($data)
     {
@@ -42,11 +43,14 @@ class DotpayManager
     }
 
     /**
+     * @param $operation_number
      * @param $data
      * @return mixed
+     * @throws Exceptions\RequestIntegrityException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function refundPayment($data){
-        return $this->dotpayApi->refundPayment($data);
+    public function refundPayment($operation_number, $data){
+        return $this->dotpayApi->refundPayment($operation_number, $data);
     }
 
 

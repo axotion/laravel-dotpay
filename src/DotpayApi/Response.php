@@ -77,5 +77,4 @@ class Response
     {
         return $this->data['operation_status'];
     }
-
 }
