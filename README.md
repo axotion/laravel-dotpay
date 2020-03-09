@@ -62,6 +62,14 @@ DOTPAY_BASE_URL=https://ssl.dotpay.pl/test_seller/
 ```
 I dodaj swoją metodę do obsługi callbacku jako wyjątek w pliku VerifyCsrfToken (Potrzebne by uderzenia POST z dotpaya nie wymagały tego tokenu)
 
+### Środowiska
+
+Produkcyjne:
+https://ssl.dotpay.pl/s2/login/
+
+Testowe:
+https://ssl.dotpay.pl/test_seller/
+
 
 ## Przykład użycia
 
