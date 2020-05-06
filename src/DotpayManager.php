@@ -3,7 +3,7 @@
 namespace Evilnet\Dotpay;
 
 use Evilnet\Dotpay\DotpayApi\DotpayApi;
-use Dotenv\Exception\InvalidCallbackException;
+use Evilnet\Dotpay\Exceptions\InvalidCallbackException;
 use Evilnet\Dotpay\DotpayApi\Response;
 
 /**
@@ -73,6 +73,7 @@ class DotpayManager
         if ($this->dotpayApi->verifyCallback($data)) {
             return new Response($data);
         }
+
         throw new InvalidCallbackException('invalid_hash');
     }
 }
