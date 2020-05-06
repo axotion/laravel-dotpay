@@ -3,8 +3,8 @@
 namespace Evilnet\Dotpay;
 
 use Evilnet\Dotpay\DotpayApi\DotpayApi;
-use Evilnet\Dotpay\Exceptions\InvalidCallbackException;
 use Evilnet\Dotpay\DotpayApi\Response;
+use InvalidArgumentException;
 
 /**
  * Class DotpayManager
@@ -74,6 +74,6 @@ class DotpayManager
             return new Response($data);
         }
 
-        throw new InvalidCallbackException('invalid_hash');
+        throw new InvalidArgumentException('invalid_hash');
     }
 }
