@@ -1,6 +1,6 @@
 # laravel-dotpay
 
-Paczka Dotpay do Laravela 5.x. Pozwala przesyłać dane poprzez API zamiast formularza.
+Paczka Dotpay do Laravela 5.x. Pozwala przesyłać dane bezpośrednio przez API zamiast formularza.
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/axotion/laravel-dotpay/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/axotion/laravel-dotpay/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/axotion/laravel-dotpay/badges/build.png?b=master)](https://scrutinizer-ci.com/g/axotion/laravel-dotpay/build-status/master)
@@ -23,7 +23,7 @@ Przez composera
 $ composer require evilnet/dotpay
 ```
 
-lub dodaj do pliku composera
+lub w przypadku używania aktualnej wersji z mastera (niezalecane jeżeli chcesz używać najbardziej stabilnej wersji która została ujęta w release) dodaj do pliku composera
 
 ```json
  "require": {
@@ -31,7 +31,7 @@ lub dodaj do pliku composera
      },
 
 ```
-Potem zarejestruj usługę i ewentualnie alias w config/app.php
+Potem zarejestruj usługę i ewentualnie alias by móc używać fasady w config/app.php (Niepotrzebne od Laravela 5.5 i wzwyż)
 
 
 ```
@@ -60,7 +60,15 @@ DOTPAY_SHOP_ID=
 DOTPAY_PIN=
 DOTPAY_BASE_URL=https://ssl.dotpay.pl/test_seller/ 
 ```
-I dodaj swoją metodę do obsługi callbacku jako wyjątek w VerifyCsrfToken
+I dodaj swoją metodę do obsługi callbacku jako wyjątek w pliku VerifyCsrfToken (Potrzebne by uderzenia POST z dotpaya nie wymagały tego tokenu)
+
+### Środowiska
+
+Produkcyjne:
+https://ssl.dotpay.pl/s2/login/
+
+Testowe:
+https://ssl.dotpay.pl/test_seller/
 
 
 ## Przykład użycia
@@ -81,7 +89,9 @@ class DotpayController extends Controller
     {
         $this->dotpayManager = $dotpayManager;
     }
-
+    
+    // Tutaj uderzy Dotpay z danymi o tym w jakim stanie jest transakcja. Zwrócenie OK jest wymagane by dotpay przyjął, że serwer odpowiada poprawnie
+    
     public function callback(Request $request)
     {
         $response = $this->dotpayManager->callback($request->all());

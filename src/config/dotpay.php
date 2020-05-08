@@ -2,6 +2,7 @@
 return [
 
     'api' => [
+        'api_version' => 'dev',
         'username' => env('DOTPAY_USERNAME'),
         'password' => env('DOTPAY_PASSWORD'),
         'shop_id' => env('DOTPAY_SHOP_ID'),
