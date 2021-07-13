@@ -1,5 +1,5 @@
 {
-    "name": "adrian1207/dotpay",
+    "name": "inkvizytor/dotpay",
     "type": "library",
     "description": "Package for Dotpay payments via api instead of form",
     "keywords": [
